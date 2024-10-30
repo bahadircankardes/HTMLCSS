@@ -1,0 +1,41 @@
+.container{
+    border: 2px solid; border-color: brown;
+    width: 100%;
+    float: left;
+    overflow : auto;
+    display: flex;
+}
+.container div{
+    width: 33%;
+    /* float : left; */
+}
+
+.ali{
+    /*width: 300px*/
+    width: 30%;
+    margin: auto;
+    border: 2px solid;
+    border-color: red;
+    /* display : inline-block; */
+
+}
+.veli{
+    /* width: 500px; */
+    width: 30%;
+    margin: auto;
+    border: 2px solid;
+    border-color: green;
+    /* display : inline-block; */
+
+}
+
+.ayse{
+    /* width: 500px; */
+    width: 30%;
+    margin: auto;
+    border: 2px solid;
+    border-color: blue;
+    /* display : inline-block; */
+
+}
+
