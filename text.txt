@@ -1,0 +1,9 @@
+http://127.0.0.1:5500/localhost?
+ad=Rasit
+&soyad=Kardes
+&sehir=34
+&dtrh=2005-05-05
+&ltrh=2000-01-01T05%3A30
+&cinsiyet=on
+&password=qweqwe
+&email=kardesrasit39%40gmail.com
