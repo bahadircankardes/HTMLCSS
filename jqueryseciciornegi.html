@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#bir').click(function(){
+            $('p').html("Merhaba JQuery");
+        });
+
+        $('#iki').click(function(){
+            $('#metin').html("Id'si Metin 1 olan p nin icerigi degistirildi.");
+            $('p#metin1').html("Merhaba Dünya");
+        });
+
+        $('#uc').click(function(){
+            $('#metin').html("Id'si Metin 1 ve Metin 2 olan p lerin icerigi degistirildi.");
+            $('p#metin1, #metin2').html("Merhaba Dünya");
+        });
+
+        $('#dort').click(function(){
+            $('#metin').html("language attribute 'tr' olan p lerin icerigi degistirildi.");
+            $('p[lang=tr]').html("Merhaba Jupiter");
+        });
+
+        $('#bes').click(function(){
+            $('#metin').html("language attribute 'tr' ve 'fr' olan p lerin icerigi degistirildi.");
+            $('p[lang=tr], p[lang=fr]').html("Merhaba Mars");
+        });
+
+        $('#alti').click(function(){
+            $('#metin').html("language attribute 'tr' ve id si Metin 4 olan p lerin icerigi degistirildi.");
+            $('p[lang=tr]p[id=metin4]').html("Merhaba Kars");
+        });
+
+        $('#yedi').click(function(){
+            $('#metin').html("language attribute 'fr' olan p lerin icerigi gizlendi.");
+            $('p[lang=fr]').hide();
+        });
+        $('#sekiz').click(function(){
+            $('#metin').html("language attribute 'fr' olan p lerin icerigi gösterildi.");
+            $('p[lang=fr]').show();
+        });
+    });
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <p id="metin1" lang="tr" style="background-color: bisque;">Metin1</p>
+                <p id="metin2" lang="en" style="background-color: aqua;">Metin2</p>
+                <p id="metin3" lang="fr" style="background-color: rgb(50, 87, 87);">Metin3</p>
+                <p id="metin4" lang="tr" style="background-color: blueviolet;">Metin4</p>
+                <p id="metin5" lang="en" style="background-color: brown;">Metin5</p>
+                <p id="metin6" lang="fr" style="background-color: chartreuse;">Metin6</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <a class="btn btn-primary" id="bir">Ornek 1</a>
+                <a class="btn btn-secondary" id="iki">Ornek 2</a>
+                <a class="btn btn-info" id="uc">Ornek 3</a>
+                <a class="btn btn-danger" id="dort">Ornek 4</a>
+                <a class="btn btn-outline-primary" id="bes">Ornek 5</a>
+                <a class="btn btn-outline-success" id="alti">Ornek 6</a>
+                <a class="btn btn-outline-danger" id="yedi">Gizle</a>
+                <a class="btn btn-outline-dark" id="sekiz">Goster</a>
+
+
+            </div>
+        </div>
+        <p id="metin" class="text-danger"></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
