@@ -46,9 +46,11 @@
         <div class="row">
             <div class="col">
                 <button type="button" id="btn" class="btn">Oyna</button>
+                <button type="button" id="btnsifirla" class="btn">Sifirla</button>
             </div>
             <div class="col">
                 <p class="text-danger" id="sayilar"></p>
+                <p class="text-danger" id="secilenler"></p>
             </div>
         </div>
     </div>
@@ -58,6 +60,11 @@
     <script>
         $(document).ready(function()
         {
+            let sayilar = [];                
+            var secimsayisi = 0;
+            var secilenler = [];
+            $("#btn").hide();
+            $("#btnsifirla").hide();
 
             for (var i = 1; i <= 50; i++)
             {
@@ -65,18 +72,91 @@
                 $(element).appendTo("body").html(i);
             }
 
-            $("#btn").click(function()
-            {   $(".top").css( "background-color" , "#bec71b");
+            //Renkli butonlara tiklaninca renk degistirme
+            //class = ".top" olan divlere tiklaninca this operatörü ile kendini ifade eder ve
+            //$(this) ile ilgili elementi alir ve bu elementin css renklerini degistirir.
+            //Burada #ff0000 renk karsılıgı  kirmızı renktir
 
-                let sayilar = [];                
+            $(".top").click(function() 
+            {
+                secimsayisi++;
+                if (secimsayisi<6) 
+                {   
+                    $(this).css("background-color", "#ff0000");
+                    secilenler.push($(this).attr('id'));
+                        
+                }
+
+                else if (secimsayisi==6) 
+                {
+                    $(this).css("background-color", '#ff0000');
+                    secilenler.push($(this).attr('id'));
+                    $("#btn").show();
+                    $("#btnsifirla").show();
+
+                    $("#secilenler").text(secilenler);
+
+
+                }
+
+                else
+                {
+                    alert("Secim hakkiniz bitmistir...");
+                        return;
+
+                }
+
+                    
+            });
+
+            $("#btnsifirla").click(function() 
+            {
+                $("#btn").hide();
+                $("#btnsifirla").hide();
+                sayilar =[];
+                secilenler = [];
+                $(".top").css( "background-color" , "#bec71b");
+                $("#sayilar").text('');
+                $("#secilenler").text('');
+                secimsayisi = 0;
+
+            });
+
+            //Oyna butonuna tiklaninca rastgele 6 sayiyi random olarak secme
+            //ve secilen sayilarin div elementine yazma
+
+
+            $("#btn").click(function()
+            {   $(".top").css("background-color",'#e4ce0f');
+                
+                $("#sayilar").val('');
+                
+                let sayi;
+
                 for (let i = 0; i<6; i++)
                 {
                     sayi = Math.floor(Math.random() * 50)+1;
                     sayilar.push(sayi);
-                    $("#"+sayi).css("background-color", "red");
+                    // $("#"+sayi).css("background-color", "aqua");
 
                 }
                 $("#sayilar").text(sayilar);
+                $("#secilenler").text(secilenler);
+                for (let i =0; i < secilenler.length; i++)
+                {
+                    for (let j = 0; j < sayilar.length; j++) 
+                    {
+                        if (secilenler[i]==sayilar[j]) 
+                        {
+                            $("#"+secilenler[i]).css("background-color", "green");
+                            
+                            
+                        }                        
+                    }
+
+                };
+               
+                
             });
             
         });
